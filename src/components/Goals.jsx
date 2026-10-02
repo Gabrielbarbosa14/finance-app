@@ -1,6 +1,6 @@
 function Goals(){
     return(
-        <h1>oi</h1>
+        <h1>Metas</h1>
     )
 }
 

@@ -1,6 +1,6 @@
 function Budgets(){
     return(
-        <h1>oi</h1>
+        <h1>Orçamentos</h1>
     )
 }
 

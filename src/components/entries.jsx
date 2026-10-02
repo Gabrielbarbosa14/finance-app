@@ -1,4 +1,4 @@
-function NewReleases() {
+function entries() {
     return(
         <div className="">
             <h1>Lançamentos</h1>
@@ -6,4 +6,4 @@ function NewReleases() {
     )
 }
 
-export default NewReleases
+export default entries

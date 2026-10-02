@@ -1,6 +1,6 @@
 function Reports(){
     return(
-        <h1>oi</h1>
+        <h1>relatórios</h1>
     )
 }
 
