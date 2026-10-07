@@ -14,7 +14,7 @@ function About() {
 
 function App() {
   return (
-    <div className="h-screen flex">
+    <div className="min-h-screen flex">
       <Sidebar />
       <Routes>
         <Route path="/" element={<Dashboard />}/>

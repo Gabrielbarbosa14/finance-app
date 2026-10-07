@@ -18,7 +18,7 @@ const links = [
 
 function Sidebar() {
   return (
-    <div className="bg-[#1F2430] h-full w-[240px] flex flex-col justify-between items-center pt-5 pb-5">
+    <div className="bg-[#1F2430] h-full w-[240px] flex flex-col justify-between items-center pt-5 pb-5 fixed">
       {topLink.map((link) => [
         <div key={link.id} className="w-[170px] flex justify-start items-center gap-3.5 px-[10px] py-[4px]">
           <i className={`${link.icon} text-[#F7F8FA] text-[1.3em]`} />
