@@ -119,7 +119,7 @@ function Dashboard() {
         <div id="summary" className=" flex justify-between mt-[18px]">
           {summaryData.map((card) => [
             <div
-              className={`${card.bgcolor} w-[255px] h-[160px] pt-4 pb-4 pl-4.5 pr-4.5 flex flex-col justify-between rounded-[14px] border border-[#F7F8FA]/15`}
+              className={`${card.bgcolor} w-[250px] h-[160px] pt-4 pb-4 pl-4.5 pr-4.5 flex flex-col justify-between rounded-[14px] border border-[#F7F8FA]/15`}
             >
               <div className="flex items-center gap-3">
                 <div
@@ -134,10 +134,16 @@ function Dashboard() {
             </div>,
           ])}
         </div>
-        <div id="charts" className="bg-amber-100 mt-[18px] flex justify-between">
-          <div id="expenses" className="bg-[#141F2D] border border-[#F7F8FA]/15 flex flex-col p-[16px]">
-            <h1>Gastos por categoria</h1>
-            <PieChart width={320} height={300}>
+        <div id="charts" className="mt-[18px] flex justify-between">
+          <div
+            id="expenses"
+            className="bg-[#141F2D] border rounded-[14px] border-[#F7F8FA]/15 flex flex-col p-[16px]"
+          >
+            <div className="text-[#F7F8FA] flex items-center gap-2.5 mb-1">
+              <i className="fa-solid fa-chart-pie h-min text-[1.3em]"></i>
+              <h1>Gastos por categoria</h1>
+            </div>
+            <PieChart width={295} height={220}>
               <Pie data={data} dataKey="value" label>
                 {data.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={colors[index]} />
@@ -146,8 +152,63 @@ function Dashboard() {
               <Tooltip />
             </PieChart>
           </div>
-          <div id="goals" className="bg-[#141F2D] w-[200px] border border-[#F7F8FA]/15">
-
+          <div
+            id="goals"
+            className="bg-[#141F2D] w-[66%] border rounded-[14px] border-[#F7F8FA]/15 p-[16px]"
+          >
+            <div id="top" className="flex justify-between items-center mb-6">
+              <div id="icon-phrases" className="flex gap-3">
+                <div
+                  id="icon"
+                  className="text-[1.2em] text-[#F7F8FA] bg-[#414399] px-3 py-2.5 rounded-[8px] flex justify-between items-center"
+                >
+                  <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <div id="phrases">
+                  <h1 className="text-[#F7F8FA] text-[1.25em]">Metas</h1>
+                  <p className="text-[0.9em] text-[#89909C]">
+                    Seus objetivos e o progresso de cada um
+                  </p>
+                </div>
+              </div>
+              <div id="new-goal">
+                <button className="border border-[#F7F8FA]/15 px-3 py-2 flex justify-center items-center gap-2 text-[#F7F8FA] rounded-[8px]">
+                  <i class="fa-solid fa-plus"></i>
+                  <h1 className="text-[0.95em]">Nova meta</h1>
+                </button>
+              </div>
+            </div>
+            <div id="goal" className="border border-[#F7F8FA]/15 rounded-[8px]">
+              <div id="content">
+                <div id="infos">
+                  <i id="icon" class="fa-solid fa-laptop"></i>
+                  <div id="infos-details">
+                    <h1>Notebook</h1>
+                    <div id="money-time">
+                      <div id="money">
+                        <i class="fa-solid fa-coins"></i>
+                        <p>R$ 4.000,00</p>
+                      </div>
+                      <div id="time">
+                        <i class="fa-solid fa-calendar"></i>
+                        <p>10 meses</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="progress-bar-accumulated">
+                  <div id="progress-bar">
+                    <div id="total">
+                      <div id="stored"></div>
+                    </div>
+                  </div>
+                  <div id="accumulated">
+                    <p>R$ 1.200,00 acumulados</p>
+                    <p>30%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
