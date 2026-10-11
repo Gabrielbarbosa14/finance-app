@@ -71,7 +71,7 @@ function Dashboard() {
   const colors = ["#B92EEF", "#4A68D3", "#65C45A", "#FF8042"];
 
   return (
-    <div className="w-full bg-[#0A1422] pl-[240px] min-h-screen">
+    <div className="w-full bg-[#0A1422] pl-[200px] min-h-screen">
       <div className="bg-[#0C1828] pt-[18px] pb-3.5 pl-5.5 pr-5.5 flex justify-between">
         <div className="relative">
           <i className="fa-solid fa-magnifying-glass absolute left-3.5 top-[9px] text-[#89909C] text-[1em]"></i>
@@ -137,7 +137,7 @@ function Dashboard() {
         <div id="charts" className="mt-[18px] flex justify-between">
           <div
             id="expenses"
-            className="bg-[#141F2D] border rounded-[14px] border-[#F7F8FA]/15 flex flex-col p-[16px]"
+            className="bg-[#141F2D] border rounded-[14px] border-[#F7F8FA]/15 flex flex-col py-[16px] px-[18px]"
           >
             <div className="text-[#F7F8FA] flex items-center gap-2.5 mb-1">
               <i className="fa-solid fa-chart-pie h-min text-[1.3em]"></i>
@@ -157,12 +157,12 @@ function Dashboard() {
             className="bg-[#141F2D] w-[66%] border rounded-[14px] border-[#F7F8FA]/15 p-[16px]"
           >
             <div id="top" className="flex justify-between items-center mb-6">
-              <div id="icon-phrases" className="flex gap-3">
+              <div id="icon-phrases" className="flex gap-3 items-center">
                 <div
                   id="icon"
-                  className="text-[1.2em] text-[#F7F8FA] bg-[#414399] px-3 py-2.5 rounded-[8px] flex justify-between items-center"
+                  className="text-[1.2em] text-[#F7F8FA] bg-[#414399] w-[45px] h-[45px] rounded-[50%] flex justify-center items-center"
                 >
-                  <i class="fa-solid fa-bullseye"></i>
+                  <i className="fa-solid fa-bullseye h-min w-min"></i>
                 </div>
                 <div id="phrases">
                   <h1 className="text-[#F7F8FA] text-[1.25em]">Metas</h1>
@@ -178,33 +178,36 @@ function Dashboard() {
                 </button>
               </div>
             </div>
-            <div id="goal" className="border border-[#F7F8FA]/15 rounded-[8px]">
-              <div id="content">
-                <div id="infos">
-                  <i id="icon" class="fa-solid fa-laptop"></i>
-                  <div id="infos-details">
-                    <h1>Notebook</h1>
-                    <div id="money-time">
-                      <div id="money">
-                        <i class="fa-solid fa-coins"></i>
-                        <p>R$ 4.000,00</p>
+            <div id="goal" className="border border-[#F7F8FA]/15 rounded-[8px] py-[14px] px-[16px]">
+              <div id="content" className="flex flex-col gap-3.5 w-full">
+                <div id="infos" className="flex items-center gap-3.5">
+                  <div className="bg-[#363B7D] py-3.5 px-3 flex justify-center items-center rounded-[8px] text=[0.9em] text-[var(--white-text)]">
+                    <i id="icon" class="fa-solid fa-laptop"></i>
+                  </div>
+                  <div id="infos-details" className="flex flex-col">
+                    <h1 className="text-[1.1em] text-[var(--white-text)]">Notebook</h1>
+                    <div id="money-time" className="flex text-[0.8em] items-center">
+                      <div id="money" className="flex gap-2 items-center">
+                        <i className="fa-solid fa-coins text-[var(--gray-text)]"></i>
+                        <p className="text-[var(--white-text)]">R$ 4.000,00</p>
                       </div>
-                      <div id="time">
-                        <i class="fa-solid fa-calendar"></i>
-                        <p>10 meses</p>
+                      <div id="separatot" className="bg-[var(--gray-text)] h-[4px] w-[4px] rounded-[50%] mx-2.5"></div>
+                      <div id="time" className="flex gap-2 items-center ml-[3px]">
+                        <i className="fa-solid fa-calendar text-[var(--gray-text)]"></i>
+                        <p className="text-[var(--white-text)]">10 meses</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div id="progress-bar-accumulated">
+                <div id="progress-bar-accumulated" className="flex flex-col gap-2">
                   <div id="progress-bar">
-                    <div id="total">
-                      <div id="stored"></div>
+                    <div id="total" className="h-4 rounded-[8px] bg-[#223148]">
+                      <div id="stored" className="h-4 rounded-[8px] bg-[#0FE9B4] w-[30%]"></div>
                     </div>
                   </div>
-                  <div id="accumulated">
-                    <p>R$ 1.200,00 acumulados</p>
-                    <p>30%</p>
+                  <div id="accumulated" className="flex justify-between text-[0.9em]">
+                    <p className="text-[var(--gray-text)]"><span className="text-[var(--white-text)]">R$ 1.200,00</span> acumulados</p>
+                    <p className="text-[var(--gray-text)]">30%</p>
                   </div>
                 </div>
               </div>

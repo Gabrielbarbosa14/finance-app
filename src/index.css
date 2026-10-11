@@ -10,3 +10,8 @@ body {
   margin: 0;
   background-color: #0a1422;
 }
+
+@theme {
+  --white-text: #F7F8FA;
+  --gray-text: #89909C;
+}
