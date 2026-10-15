@@ -8,10 +8,31 @@ body,
 
 body {
   margin: 0;
-  background-color: #0a1422;
+  background-color: var(--color-app-background);
 }
 
 @theme {
-  --white-text: #F7F8FA;
-  --gray-text: #89909C;
+  --color-app-background: #0A1422;
+  --color-app-header: #0C1828;
+  --color-app-sidebar: #1F2430;
+  --color-app-surface: #141F2D;
+  --color-app-input: #1A293E;
+  --color-app-primary: #F7F8FA;
+  --color-app-secondary: #89909C;
+  --color-app-outline: #F7F8FA;
+  --color-app-hover: #616A7B;
+
+  --color-summary-balance: #142E35;
+  --color-summary-balance-icon: #13816A;
+  --color-summary-income: #12243D;
+  --color-summary-income-icon: #437FE2;
+  --color-summary-expenses: #372432;
+  --color-summary-expenses-icon: #E25F68;
+  --color-summary-goals: #242547;
+  --color-summary-goals-icon: #6945AA;
+
+  --color-goal-icon: #414399;
+  --color-goal-icon-secondary: #363B7D;
+  --color-progress-track: #223148;
+  --color-progress-fill: #0FE9B4;
 }
