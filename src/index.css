@@ -11,6 +11,10 @@ body {
   background-color: var(--color-app-background);
 }
 
+h1 {
+  font-weight: bolder;
+}
+
 @theme {
   --color-app-background: #0A1422;
   --color-app-header: #0C1828;

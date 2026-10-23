@@ -18,29 +18,29 @@ const links = [
 
 function Sidebar() {
   return (
-    <div className="bg-app-sidebar h-full w-[200px] flex flex-col justify-between items-center pt-5 pb-5 fixed">
-      {topLink.map((link) => [
+    <div className="bg-app-sidebar h-screen top-0 sticky w-[200px] flex flex-col justify-between items-center pt-5 pb-5">
+      {topLink.map((link) => (
         <div key={link.id} className="w-[170px] flex justify-start items-center gap-3.5 px-[10px] py-[4px]">
           <i className={`${link.icon} text-app-primary text-[1.3em]`} />
           <h1 className="text-[1.4em] text-app-primary">{link.label}</h1>
         </div>
-      ])}
+      ))}
       <hr className="bg-app-outline h-[1.5px] w-full border-none mt-4 mb-4"/>
       <div className="flex flex-col justify-center items-center gap-[13px] mb-auto">
-        {links.map((item) => [
+        {links.map((item) => (
           <Link to={item.path} key={item.id} className="group flex justify-start items-center gap-2.5 w-[170px] rounded-[8px] px-[11px] py-[8px] hover:bg-app-hover">
             <i className={`${item.icon} text-app-primary text-[1.1em]`} />
             <h1 className="text-app-primary">{item.label}</h1>
           </Link>
-        ])}
+        ))}
       </div>
       <div>
-        {settings.map((setting) => [
+        {settings.map((setting) => (
           <Link to={setting.path} className="flex justify-start items-center gap-2.5 w-[170px] hover:bg-app-hover px-[11px] py-[8px] rounded-[8px]">
             <i className={`${setting.icon} text-app-primary text-[1.1em]`} />
             <h1 className="text-app-primary w-full">{setting.label}</h1>
           </Link>
-        ])}
+        ))}
       </div>
     </div>
   )

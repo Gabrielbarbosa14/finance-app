@@ -6,6 +6,7 @@ import Lancamentos from "./components/entries";
 import Goals from "./components/Goals";
 import Budgets from "./components/Budgets";
 import Reports from "./components/Reports";
+import SearchBar from "./components/SearchBar";
 import { Link, Route, Routes } from "react-router-dom";
 
 function About() {
@@ -14,16 +15,19 @@ function About() {
 
 function App() {
   return (
-    <div className="min-h-screen flex">
-      <Sidebar />
-      <Routes>
-        <Route path="/" element={<Dashboard />}/>
-        <Route path="/entries" element={<Lancamentos />}/>
-        <Route path="/goals" element={<Goals />}/>
-        <Route path="/budgets" element={<Budgets />}/>
-        <Route path="/reports" element={<Reports />}/>
-        <Route path="*" element={<h1>404 NOT FOUND</h1>}/>
-      </Routes>
+    <div className="min-h-screen min-w-screen flex">
+      <Sidebar/>
+      <div>
+        <SearchBar />
+        <Routes>
+          <Route path="/" element={<Dashboard />}/>
+          <Route path="/entries" element={<Lancamentos />}/>
+          <Route path="/goals" element={<Goals />}/>
+          <Route path="/budgets" element={<Budgets />}/>
+          <Route path="/reports" element={<Reports />}/>
+          <Route path="*" element={<h1>404 NOT FOUND</h1>}/>
+        </Routes>
+      </div>
     </div>
   );
 }

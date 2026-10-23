@@ -68,38 +68,7 @@ function Dashboard() {
   const formattedDate = today.toLocaleDateString("pt-br", options);
 
     return (
-    <div className="w-full bg-app-background pl-[200px] min-h-screen">
-      <div className="bg-app-header pt-[18px] pb-3.5 pl-5.5 pr-5.5 flex justify-between">
-        <div className="relative">
-          <i className="fa-solid fa-magnifying-glass absolute left-3.5 top-[9px] text-app-secondary text-[1em]"></i>
-          <input
-            type="text"
-            name="search"
-            id="search"
-            placeholder="Buscar por descrição, categoria ou tag..."
-            className="bg-app-input text-app-primary w-[500px] pt-1.5 pb-1.5
-                    pl-11 pr-1 rounded-[6px]"
-          />
-        </div>
-        <div
-          id="right-conner"
-          className="flex justify-between items-center w-[132px]"
-        >
-          <div id="notification" className="flex justify-center items-center">
-            <i className="fa-solid fa-bell text-[1.3em] text-app-secondary"></i>
-          </div>
-          <div className="flex items-center justify-center gap-[5px]">
-            <div
-              id="icon"
-              className="flex items-center justify-center
-                        bg-app-input w-[32px] h-[32px] rounded-[50%]"
-            >
-              <h1 className="text-app-secondary">G</h1>
-            </div>
-            <h1 className="text-app-secondary text-[1.1em]">Gabriel</h1>
-          </div>
-        </div>
-      </div>
+    <div className="w-full bg-app-background min-h-screen">
       <div id="body" className="pl-5.5 pr-5.5 pt-3.5 pb-3.5 ">
         <div id="top-body" className="w-full flex justify-between items-center">
           <div>
@@ -110,11 +79,11 @@ function Dashboard() {
           </div>
           <div className="text-app-secondary flex gap-2.5">
             <p className="text-[0.9em]">{formattedDate}</p>
-            <i class="fa-solid fa-calendar-days"></i>
+            <i className="fa-solid fa-calendar-days"></i>
           </div>
         </div>
         <div id="summary" className=" flex justify-between mt-[18px]">
-          {summaryData.map((card) => [
+          {summaryData.map((card) => (
             <div
               className={`${card.bgcolor} w-[250px] h-[160px] pt-4 pb-4 pl-4.5 pr-4.5 flex flex-col justify-between rounded-[14px] border border-app-outline/15`}
             >
@@ -128,8 +97,8 @@ function Dashboard() {
               </div>
               <h1 className="text-[1.7em] text-app-primary">{card.value}</h1>
               <p className="text-[0.8em] text-app-secondary">{card.description}</p>
-            </div>,
-          ])}
+            </div>
+          ))}
         </div>
         <div id="charts" className="mt-[18px] flex justify-between gap-4 items-stretch">
           <div
@@ -218,7 +187,7 @@ function Dashboard() {
               </div>
               <div id="new-goal">
                 <button className="border border-app-outline/15 px-3 py-2 flex justify-center items-center gap-2 text-app-primary rounded-[8px] hover:bg-app-hover hover:cursor-pointer">
-                  <i class="fa-solid fa-plus"></i>
+                  <i className="fa-solid fa-plus"></i>
                   <h1 className="text-[0.95em]">Nova meta</h1>
                 </button>
               </div>
@@ -227,7 +196,7 @@ function Dashboard() {
               <div id="content" className="flex flex-col gap-3.5 w-full">
                 <div id="infos" className="flex items-center gap-3.5">
                   <div className="bg-goal-icon-secondary py-3.5 px-3 flex justify-center items-center rounded-[8px] text-[0.9em] text-app-primary">
-                    <i id="icon" class="fa-solid fa-laptop"></i>
+                    <i id="icon" className="fa-solid fa-laptop"></i>
                   </div>
                   <div id="infos-details" className="flex flex-col">
                     <h1 className="text-[1.1em] text-app-primary">Notebook</h1>
