@@ -1,8 +1,10 @@
+import { useState } from "react";
 import {
   PieChart,
   Pie,
   Cell,
 } from "recharts";
+import ConfigOpeningBalance from "./ConfigOpeningBalance";
 
 const colors = ["#B92EEF", "#4A68D3", "#65C45A", "#FF8042"];
 
@@ -10,7 +12,7 @@ const summaryData = [
   {
     id: "totalbalance",
     label: "Saldo Total",
-    value: "R$10,00",
+    value: "R$0,00",
     description: "Seu saldo atual",
     icon: "fa-solid fa-wallet",
     bgcolor: "bg-summary-balance",
@@ -19,7 +21,7 @@ const summaryData = [
   {
     id: "montharrivals",
     label: "Entradas do mês",
-    value: "R$10,00",
+    value: "R$0,00",
     description: "0% em relação ao mês anterior",
     icon: "fa-solid fa-arrow-right",
     bgcolor: "bg-summary-income",
@@ -28,7 +30,7 @@ const summaryData = [
   {
     id: "monthoutflows",
     label: "Saidas do mês",
-    value: "R$10,00",
+    value: "R$0,00",
     description: "0% em relação ao mês anterior",
     icon: "fa-solid fa-arrow-down-long",
     bgcolor: "bg-summary-expenses",
@@ -54,9 +56,11 @@ const data = [
 
 function Dashboard() {
   const today = new Date();
+
   const totalExpenses = data.reduce((total, entry) => total + entry.value, 0);
-  const formatCurrency = (value) =>
-    value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+  const formatCurrency = (value) => 
+  value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
   const options = {
     weekday: "long",
@@ -66,6 +70,8 @@ function Dashboard() {
   };
 
   const formattedDate = today.toLocaleDateString("pt-br", options);
+
+  const [openingBalance, setOpeningBalance] = useState(null)
 
     return (
     <div className="w-full bg-app-background min-h-screen">
@@ -85,7 +91,7 @@ function Dashboard() {
         <div id="summary" className=" flex justify-between mt-[18px]">
           {summaryData.map((card) => (
             <div
-              className={`${card.bgcolor} w-[250px] h-[160px] pt-4 pb-4 pl-4.5 pr-4.5 flex flex-col justify-between rounded-[14px] border border-app-outline/15`}
+              className={`${card.bgcolor} w-[255px] h-[165px] pt-4 pb-4 pl-4.5 pr-4.5 flex flex-col justify-between rounded-[14px] border border-app-outline/15`}
             >
               <div className="flex items-center gap-3">
                 <div
@@ -95,8 +101,9 @@ function Dashboard() {
                 </div>
                 <p className="text-[0.8em] text-app-secondary">{card.label}</p>
               </div>
-              <h1 className="text-[1.7em] text-app-primary">{card.value}</h1>
+              <h1 className="text-[1.6em] text-app-primary">{card.id === "totalbalance" && openingBalance === null ? "Não configurado" : card.id === "totalbalance" && openingBalance !== null ? openingBalance.toLocaleString("pt-BR", {style: "currency", currency: "BRL"}) : card.value }</h1>
               <p className="text-[0.8em] text-app-secondary">{card.description}</p>
+              {card.id === "totalbalance" && openingBalance === null ? <ConfigOpeningBalance /> : ""}
             </div>
           ))}
         </div>
