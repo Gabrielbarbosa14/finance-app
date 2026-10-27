@@ -74,7 +74,7 @@ function Dashboard() {
   const [openingBalance, setOpeningBalance] = useState(null)
 
     return (
-    <div className="w-full bg-app-background min-h-screen">
+    <div className="min-w-full bg-app-background min-h-screen">
       <div id="body" className="pl-5.5 pr-5.5 pt-3.5 pb-3.5 ">
         <div id="top-body" className="w-full flex justify-between items-center">
           <div>
@@ -103,7 +103,7 @@ function Dashboard() {
               </div>
               <h1 className="text-[1.6em] text-app-primary">{card.id === "totalbalance" && openingBalance === null ? "Não configurado" : card.id === "totalbalance" && openingBalance !== null ? openingBalance.toLocaleString("pt-BR", {style: "currency", currency: "BRL"}) : card.value }</h1>
               <p className="text-[0.8em] text-app-secondary">{card.description}</p>
-              {card.id === "totalbalance" && openingBalance === null ? <ConfigOpeningBalance /> : ""}
+              {card.id === "totalbalance" && openingBalance === null ? <ConfigOpeningBalance onSave={setOpeningBalance} /> : ""}
             </div>
           ))}
         </div>
