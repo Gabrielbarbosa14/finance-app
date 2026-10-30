@@ -1,14 +1,15 @@
 import { useState } from "react";
 import DarkScreen from "./DarkScreen";
 
-function ConfigOpeningBalance({ onSave }) {
+function ConfigOpeningBalance({ onSave, openingBalance }) {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [balance, setBalance] = useState("");
 
   function handleSave(event) {
     event.preventDefault();
 
-    const amount = Number(balance);
+    const amount = (Number(balance))
+
     if (!Number.isFinite(amount)) {
       event.currentTarget.reportValidity();
       return;
@@ -19,14 +20,15 @@ function ConfigOpeningBalance({ onSave }) {
   }
 
   return (
-    <span>
+    <div>
       <button
         onClick={() => {
           setisModalOpen(true);
+          setBalance(openingBalance !== null ? String(openingBalance) : "");
         }}
         className="bg-[#144241] py-1.5 px-3.5 text-app-primary rounded-md my-1 text-[0.9em]"
       >
-        Definir saldo inicial
+        {openingBalance !== null ? 'Alterar saldo' : 'Definir saldo inicial'}
       </button>
       {isModalOpen && <DarkScreen modal={setisModalOpen}/>}
       {isModalOpen && (
@@ -55,6 +57,7 @@ function ConfigOpeningBalance({ onSave }) {
                   name="openingBalance"
                   id="opening-balance"
                   value={balance}
+                  min={0}
                   onChange={(event) => setBalance(event.target.value)}
                   step="0.01"
                   required
@@ -81,7 +84,7 @@ function ConfigOpeningBalance({ onSave }) {
           </div>
         </form>
       )}
-    </span>
+    </div>
   );
 }
 

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   PieChart,
   Pie,
@@ -54,7 +53,7 @@ const data = [
   { name: "Estudos", value: 300, icon: "fa-solid fa-book" },
 ];
 
-function Dashboard() {
+function Dashboard({ openingBalance, setOpeningBalance }) {
   const today = new Date();
 
   const totalExpenses = data.reduce((total, entry) => total + entry.value, 0);
@@ -70,8 +69,6 @@ function Dashboard() {
   };
 
   const formattedDate = today.toLocaleDateString("pt-br", options);
-
-  const [openingBalance, setOpeningBalance] = useState(null)
 
     return (
     <div className="min-w-full bg-app-background min-h-screen">
@@ -91,7 +88,7 @@ function Dashboard() {
         <div id="summary" className=" flex justify-between mt-[18px]">
           {summaryData.map((card) => (
             <div
-              className={`${card.bgcolor} w-[255px] h-[165px] pt-4 pb-4 pl-4.5 pr-4.5 flex flex-col justify-between rounded-[14px] border border-app-outline/15`}
+              className={`${card.bgcolor} w-[255px] h-[165px] pt-4 pb-4 pl-4.5 pr-4.5 flex flex-col justify-between rounded-[14px] border border-app-outline/15`} key={card.id}
             >
               <div className="flex items-center gap-3">
                 <div
@@ -103,7 +100,8 @@ function Dashboard() {
               </div>
               <h1 className="text-[1.6em] text-app-primary">{card.id === "totalbalance" && openingBalance === null ? "Não configurado" : card.id === "totalbalance" && openingBalance !== null ? openingBalance.toLocaleString("pt-BR", {style: "currency", currency: "BRL"}) : card.value }</h1>
               <p className="text-[0.8em] text-app-secondary">{card.description}</p>
-              {card.id === "totalbalance" && openingBalance === null ? <ConfigOpeningBalance onSave={setOpeningBalance} /> : ""}
+              {card.id === "totalbalance" && openingBalance === null ? <ConfigOpeningBalance onSave={setOpeningBalance} openingBalance={openingBalance}/> : ""}
+              {card.id === "totalbalance" && openingBalance !== null ? <ConfigOpeningBalance onSave={setOpeningBalance} openingBalance={openingBalance}/> : ""}
             </div>
           ))}
         </div>

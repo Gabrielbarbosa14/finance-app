@@ -36,7 +36,7 @@ function Sidebar() {
       </div>
       <div>
         {settings.map((setting) => (
-          <Link to={setting.path} className="flex justify-start items-center gap-2.5 w-[170px] hover:bg-app-hover px-[11px] py-[8px] rounded-[8px]">
+          <Link to={setting.path} className="flex justify-start items-center gap-2.5 w-[170px] hover:bg-app-hover px-[11px] py-[8px] rounded-[8px]" key={setting.id}>
             <i className={`${setting.icon} text-app-primary text-[1.1em]`} />
             <h1 className="text-app-primary w-full">{setting.label}</h1>
           </Link>
