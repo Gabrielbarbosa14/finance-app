@@ -1,8 +1,7 @@
 import { useState } from "react";
 import DarkScreen from "./DarkScreen";
 
-function ConfigOpeningBalance({ onSave, openingBalance }) {
-  const [isModalOpen, setisModalOpen] = useState(false);
+function ConfigOpeningBalance({ onSave, openingBalance, isModalOpen, setisModalOpen }) {
   const [balance, setBalance] = useState("");
 
   function handleSave(event) {
@@ -26,15 +25,15 @@ function ConfigOpeningBalance({ onSave, openingBalance }) {
           setisModalOpen(true);
           setBalance(openingBalance !== null ? String(openingBalance) : "");
         }}
-        className="bg-[#144241] py-1.5 px-3.5 text-app-primary rounded-md my-1 text-[0.9em]"
+        className="bg-[#144241] py-1.5 px-2.75 text-app-primary rounded-md my-1 text-[0.9em]"
       >
-        {openingBalance !== null ? 'Alterar saldo' : 'Definir saldo inicial'}
+        {openingBalance !== null ? 'Alterar saldo' : 'Definir saldo'}
       </button>
-      {isModalOpen && <DarkScreen modal={setisModalOpen}/>}
+      {isModalOpen && <DarkScreen onClose={() => setisModalOpen(false)}/>}
       {isModalOpen && (
         <form
           onSubmit={handleSave}
-          className="w-[370px] h-[280px] bg-[#1A293A] fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] pt-4 flex flex-col justify-between rounded-[14px] border border-app-outline/15 z-50"
+          className="w-[85vw] h-[280px] lg:w-[370px] md: w-[550px] bg-[#1A293A] fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] pt-4 flex flex-col justify-between rounded-[14px] border border-app-outline/15 z-50"
         >
           <div className="px-6 h-full flex flex-col justify-between">
             <div className="flex flex-col gap-2">
