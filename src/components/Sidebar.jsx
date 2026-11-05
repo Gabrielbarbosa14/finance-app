@@ -47,7 +47,7 @@ function Sidebar({ isOpen, setIsOpen }) {
       {isOpen && <DarkScreen onClose={() => setIsOpen(false)} />}
       <aside
         className={`bg-app-sidebar
-        fixed top-0 left-0 bottom-0 z-2 flex h-screen w-[200px] shrink-0 flex-col items-center justify-between
+        fixed top-0 left-0 bottom-0 z-20 flex h-screen w-[200px] shrink-0 flex-col items-center justify-between
         pt-5 pb-5 transition-transform duration-250 lg:sticky lg:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"}
         `}
         id="sidebar-navigation"

@@ -10,7 +10,7 @@ import SearchBar from "./components/SearchBar";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const [openingBalance, setOpeningBalance] = useState(null);
+  const [openingBalance, setOpeningBalance] = useState(getStoredOpeningBalance);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isModalOpen, setisModalOpen] = useState(false);
 
@@ -21,6 +21,37 @@ function App() {
       document.body.style.overflow = "";
     };
   }, [menuOpen, isModalOpen]);
+
+  useEffect(() => {
+    if(openingBalance === null){
+      localStorage.removeItem("openingBalanceLs")
+      return
+    }
+
+    localStorage.setItem("openingBalanceLs", JSON.stringify(openingBalance))
+  }, [openingBalance])
+
+  function getStoredOpeningBalance(){
+    try{
+      const savedBalance = localStorage.getItem("openingBalanceLs")
+
+      if(savedBalance === null){
+        return null
+      }
+
+      const parsedBalance = JSON.parse(savedBalance)
+
+      if (typeof parsedBalance !== "number" || !Number.isFinite(parsedBalance) || parsedBalance < 0){
+        return null
+      }
+
+      return parsedBalance
+    } catch (error){
+      console.error("Erro ao recuperar o saldo:", error)
+      return null
+    }
+    
+  }
 
   return (
     <div className={`min-h-screen flex `}>

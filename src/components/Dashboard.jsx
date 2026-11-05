@@ -49,7 +49,7 @@ const data = [
   { name: "Estudos", value: 300, icon: "fa-solid fa-book" },
 ];
 
-function Dashboard({ openingBalance, setOpeningBalance, isModalOpen, setisModalOpen }) {
+function Dashboard({ openingBalance, setOpeningBalance, isModalOpen, setisModalOpen, openingBalanceLs }) {
   const today = new Date();
 
   const totalExpenses = data.reduce((total, entry) => total + entry.value, 0);

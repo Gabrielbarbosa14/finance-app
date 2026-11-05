@@ -33,7 +33,7 @@ function ConfigOpeningBalance({ onSave, openingBalance, isModalOpen, setisModalO
       {isModalOpen && (
         <form
           onSubmit={handleSave}
-          className="w-[85vw] h-[280px] lg:w-[370px] md: w-[550px] bg-[#1A293A] fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] pt-4 flex flex-col justify-between rounded-[14px] border border-app-outline/15 z-50"
+          className="w-[85vw] h-[280px] lg:w-[370px] md:w-[550px] sm:w-[75%] bg-[#1A293A] fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] pt-4 flex flex-col justify-between rounded-[14px] border border-app-outline/15 z-50"
         >
           <div className="px-6 h-full flex flex-col justify-between">
             <div className="flex flex-col gap-2">
